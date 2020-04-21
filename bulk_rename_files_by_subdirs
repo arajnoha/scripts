@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# arajnoha
+# GPL
+# Loops through subfolders in the current directory
+# and renames files in them with the subfolder's name
+# and suffix of their count
+
+for dir in */
+do
+  dir=${dir%*/}
+  int=0
+  for file in ${dir}/*; do
+    mv $file ${dir}/${dir}-"$int".jpg
+    ((int++));
+  done
+done
+
